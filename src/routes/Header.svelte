@@ -12,28 +12,21 @@
 	</div>
 
 	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined} 
+				class={$page.url.pathname === '/' ? 'text-[var(--color-theme-1)] font-black' : 'text-[#FAFBFC]'}>
 				<a href="/">Home</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
+			<li aria-current={$page.url.pathname === '/watchlist' ? 'page' : undefined} 
+				class={$page.url.pathname === '/watchlist' ? 'text-[var(--color-theme-1)] font-black' : 'text-[#FAFBFC]'}>
+				<a href="/watchlist">WatchList</a>
 			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
 
 	<div class="corner">
 		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
+			<img class="github-logo" src={`https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png`} alt="GitHub" />
 		</a>
 	</div>
 </header>
@@ -41,7 +34,9 @@
 <style>
 	header {
 		display: flex;
+		padding: 20px;
 		justify-content: space-between;
+		border-bottom: 1px solid var(--color-theme-1);
 	}
 
 	.corner {
@@ -66,7 +61,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		overflow: hidden;
 	}
 
 	svg {
@@ -97,33 +92,24 @@
 		height: 100%;
 	}
 
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
 	nav a {
 		display: flex;
 		height: 100%;
 		align-items: center;
 		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;
+		color: inherit;
 	}
 
 	a:hover {
 		color: var(--color-theme-1);
+	}
+
+	.github-logo {
+		border-radius: 50%;
 	}
 </style>
