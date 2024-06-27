@@ -3,6 +3,7 @@
   import { watchlist } from "../../stores/watchlist";
   import { onMount } from "svelte";
   import MovieCard from "../../components/MovieCard.svelte";
+  import { whoami } from "../../utils/whoami";
 
   let movies = [];
   let query = "";
@@ -15,7 +16,7 @@
   });
 
   const searchMovies = async () => {
-    let filteredMovies = await getMovies(query);
+    let filteredMovies = await getMovies(`${query}`);
     if (type) {
       filteredMovies = filteredMovies.filter((movie) => movie.Type === type);
     }
@@ -26,8 +27,11 @@
   };
 
   onMount(() => {
+    whoami();
     searchMovies();
   });
+
+
 </script>
 
 <h1>What would you like to watch today</h1>
