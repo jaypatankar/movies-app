@@ -12,7 +12,7 @@ This is a SvelteKit-based web application for listing, searching, and managing a
 ## Setup
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. Create a `.env` file with your OMDB API key: `VITE_OMDB_API_KEY=YOUR_API_KEY`
+3. Create a `.env` file with your OMDB API key: `VITE_OMDB_API_KEY=YOUR_API_KEY` AND OMDB API URL: `VITE_OMDB_API_URL=YOUR_API_URL`
 4. Run the development server: `npm run dev`
 
 ## Usage

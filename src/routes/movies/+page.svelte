@@ -9,7 +9,6 @@
   let query = "";
   let type = "";
   let watchlistArray = [];
-  let selectedMovie = null;
 
   watchlist.subscribe((value) => {
     watchlistArray = value;
@@ -26,9 +25,13 @@
     }));
   };
 
+  const fetchLatestMovies = async () => {
+    movies = await getMovies('Marvel');  // Marvel as default movie search
+  };
+
   onMount(() => {
     whoami();
-    searchMovies();
+    fetchLatestMovies();
   });
 
 

@@ -9,7 +9,7 @@ export const omdb = axios.create({
 
 export const getMovies = async (query) => {
   const response = await omdb.get('', {
-    params: { s: query, plot: "full" },
+    params: { s: query, plot: "full", page: 1 },
   });
   return response.data.Search || [];
 };
